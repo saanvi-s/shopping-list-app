@@ -1,0 +1,30 @@
+<h1>Shopping Lists</h1>
+<style>
+        body {
+            background-color: #d3d3d3; /* Light Gray */
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+    </style>
+<ul>
+    {% for shopping_list in shopping_lists %}
+        <li>
+            {{ shopping_list.name }} - 
+            <a href="{% url 'edit_shopping_list' shopping_list.id %}">Edit List</a> | 
+            <a href="{% url 'delete_shopping_list' shopping_list.id %}">Delete List</a>
+            <a href="{% url 'add_item_to_list' shopping_list.id %}">Add Item</a> <!-- Add this line -->
+            <ul>
+                {% for item in shopping_list.shoppinglistitem_set.all %}
+                    <li>
+                        Item: {{ item.item.name }}
+                        <a href="{% url 'edit_item' item.id %}">Edit Item</a> | 
+                        <a href="{% url 'delete_item' item.id %}">Delete Item</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </li>
+    {% empty %}
+        <p>No shopping lists available.</p>
+    {% endfor %}
+</ul>
+<a href="{% url 'add_shopping_list' %}">Add New Shopping List</a>

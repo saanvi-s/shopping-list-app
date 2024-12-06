@@ -1,0 +1,15 @@
+<!-- add_item.html -->
+<h1>Add Item to {{ shopping_list.name }}</h1>
+<style>
+        body {
+            background-color: #ffe4e1; /* Misty Rose */
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+    </style>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Item</button>
+</form>
+<a href="{% url 'list_shopping_lists' %}">Back to Shopping Lists</a>

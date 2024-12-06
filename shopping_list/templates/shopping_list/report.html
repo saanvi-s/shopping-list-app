@@ -1,0 +1,33 @@
+<h1>Shopping List Report</h1>
+<style>
+        body {
+            background-color: #f5deb3; /* Wheat */
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        form {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        a {
+            color: blue;
+            text-decoration: none;
+        }
+    </style>
+
+<form method="get" action="{% url 'report_view' %}">
+    <label for="start_date">Start Date:</label>
+    <input type="date" name="start_date" id="start_date" value="{{ start_date }}">
+    <label for="end_date">End Date:</label>
+    <input type="date" name="end_date" id="end_date" value="{{ end_date }}">
+    <button type="submit">Filter</button>
+</form>
+
+<h2>Report</h2>
+<p><strong>Total Cost:</strong> {{ total_cost|default:"N/A" }}</p>
+<p><strong>Average Cost:</strong> {{ average_cost|default:"N/A" }}</p>
+
+<a href="{% url 'list_shopping_lists' %}">Back to Shopping Lists</a>

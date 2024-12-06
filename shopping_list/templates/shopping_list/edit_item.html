@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Item</title>
+    <style>
+        body {
+            background-color: #98fb98; /* Pale Green */
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h2>Edit Item in {{ shopping_list_item.shopping_list.name }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Changes</button>
+    </form>
+    <a href="{% url 'list_shopping_lists' %}">Back to Shopping Lists</a>
+</body>
+</html>

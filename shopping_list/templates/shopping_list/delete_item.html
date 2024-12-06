@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Item</title>
+    <style>
+        body {
+            background-color: #ffb6c1; /* Light Pink */
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h2>Are you sure you want to delete this item from {{ shopping_list_item.shopping_list.name }}?</h2>
+    <p>Item: {{ shopping_list_item.item.name }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirm Delete</button>
+    </form>
+    <a href="{% url 'list_shopping_lists' %}">Cancel</a>
+</body>
+</html>

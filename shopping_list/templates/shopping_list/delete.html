@@ -1,0 +1,15 @@
+<!-- delete.html -->
+<h1>Delete Shopping List</h1>
+<style>
+        body {
+            background-color: #ffdead; /* Navajo White */
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+    </style>
+<p>Are you sure you want to delete "{{ shopping_list.name }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirm Delete</button>
+</form>
+<a href="{% url 'list_shopping_lists' %}">Back to Shopping Lists</a>

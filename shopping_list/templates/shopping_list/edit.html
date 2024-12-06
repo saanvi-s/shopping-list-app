@@ -1,0 +1,15 @@
+<!-- edit.html -->
+<h1>Edit Shopping List</h1>
+<style>
+        body {
+            background-color: #afeeee; /* Pale Turquoise */
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+    </style>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save Changes</button>
+</form>
+<a href="{% url 'list_shopping_lists' %}">Back to Shopping Lists</a>

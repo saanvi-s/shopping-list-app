@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Shopping List</title>
+    <style>
+        body {
+            background-color: #e6e6fa; /* Lavender */
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h2>Add New Shopping List</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Create Shopping List</button>
+    </form>
+    <a href="{% url 'list_shopping_lists' %}">Back to Shopping Lists</a>
+</body>
+</html>
